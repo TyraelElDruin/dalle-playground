@@ -39,10 +39,10 @@ def generate_images_api():
     
     for idx, img in enumerate(generated_imgs):
         if args.save_to_disk: 
-            img.save(os.path.join(dir_name, f'{idx}.jpeg'), format="JPEG")
+            img.save(os.path.join(dir_name, f'{idx}.png'), format="PNG")
 
         buffered = BytesIO()
-        img.save(buffered, format="JPEG")
+        img.save(buffered, format="PNG")
         img_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
         generated_images.append(img_str)
 
